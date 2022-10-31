@@ -16,16 +16,16 @@ def index():
     resp = google.get("/oauth2/v1/userinfo")
     assert resp.ok, resp.text
     email=resp.json()
-    print(email)
-    request = email.subscriptions().list(
-        part="snippet",
-        forChannelId="UCIp7tRBZx3UVC2tIVFx1xyw",
-        mine=True
-    )
-    response = request.execute()
-    results = response['pageInfo']['totalResults']
-    if results != 0:
-        return 'You are subscribed. Thank you!'
-    else:
-        return 'You are not subscribed yet.'
-    #return "You are on Google {email} ".format(email=resp.json())
+    #print(email)
+    #request = email.subscriptions().list(
+    #    part="snippet",
+    #    forChannelId="UCIp7tRBZx3UVC2tIVFx1xyw",
+    #    mine=True
+    #)
+    #response = request.execute()
+    #results = response['pageInfo']['totalResults']
+    #if results != 0:
+    #    return 'You are subscribed. Thank you!'
+    #else:
+    #    return 'You are not subscribed yet.'
+    return "You are on Google {email} ".format(email=resp.json())
